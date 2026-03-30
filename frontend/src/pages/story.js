@@ -1,5 +1,8 @@
 import { useParams, useNavigate } from "react-router-dom";
 import "../story.css";
+import storyData from '../data/books.json';
+import { useEffect, useState } from "react"; // används för filereading
+
 
 const STORIES = [
   { id: 1, title: "Mycket Läskig",  description: "En mycket läskig historia..." },
@@ -12,19 +15,35 @@ const STORIES = [
   { id: 8, title: "Lite Läskig",   description: "En lite läskig historia..." },
 ];
 
+
+
 export default function Story() {
   const { id } = useParams();
   const navigate = useNavigate();
   const story = STORIES.find(s => s.id === Number(id));
 
+  // läs in Story data
+  const theStory = storyData.books.find(s => s.id === Number(id));
+  //console.log(theStory)
+  const [chapterText, setChapterText] = useState("");
+
+  useEffect(() => {
+  if (!theStory) return;
+
+  fetch(`/books/${theStory.filename}/1.txt`)
+    .then(res => res.text())
+    .then(text => setChapterText(text));
+  }, [theStory]);
+
+  // måste vara efter useState useEffect, React flippar ut annars
   if (!story) return <div className="page"><p>Historien hittades inte.</p></div>;
 
   return (
     <div className="page">
       <div className="story-content">
-        <h1 className="story-headning">{story.title}</h1>
+        <h1 className="story-headning">{theStory.title}</h1>
         <div className="story-box">
-          <p className="story-text">{story.description}</p>
+          <pre className="story-text">{chapterText}</pre>
         </div>
       </div>
 

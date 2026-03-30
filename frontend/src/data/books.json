@@ -1,0 +1,18 @@
+{ "books": [ 
+    { 
+        "id": 1,
+        "title": "Apans Tass",
+        "filename": "monkeypaw",
+        "author": "W.W. Jacobs",
+        "chapteramt": 3
+    },
+
+    { 
+        "id": 2,
+        "title": "The Night Wire",
+        "filename": "nightwire",
+        "author": "H. F. Arnold",
+        "chapteramt": 1
+    } 
+] 
+}
