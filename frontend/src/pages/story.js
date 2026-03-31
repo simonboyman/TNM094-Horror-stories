@@ -2,6 +2,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import "../story.css";
 import storyData from '../data/books.json';
 import { useEffect, useState } from "react"; // används för filereading
+import WordList from "../components/Words.jsx"
 
 
 const STORIES = [
