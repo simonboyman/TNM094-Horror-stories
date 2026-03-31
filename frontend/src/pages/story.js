@@ -42,6 +42,7 @@ export default function Story() {
     <div className="page">
       <div className="story-content">
         <h1 className="story-headning">{theStory.title}</h1>
+        <h2 className="story-headning">{theStory.author}</h2>
         <div className="story-box">
           <pre className="story-text">{chapterText}</pre>
         </div>
