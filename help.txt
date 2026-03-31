@@ -1,0 +1,19 @@
+Gör conda env. Conda install pip. 
+Python extension till VS Code
+Lägg till conda och python till PATH
+Conda init, sen activate
+Ctrl+shift+P för att välja environment
+
+pip install -r .\requirements.txt
+
+testing routes localhost:8000/words etc.
+
+python main.py för att köra servern.
+
+REST Client extension för att testa HTTP Endpoints. I http-filen Ctrl+shift+P Send request
+
+npm install axios, gör send request till API lättare
+
+components mapp för python objekten, words
+
+api.js
