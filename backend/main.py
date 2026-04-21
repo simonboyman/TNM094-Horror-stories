@@ -3,6 +3,8 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from typing import List
+from fastapi.staticfiles import StaticFiles
+
 
 class Word(BaseModel):
     name: str
@@ -11,6 +13,9 @@ class Words(BaseModel):
     words: List[Word]
 
 app = FastAPI()
+
+# Serve all React build files (JS, CSS, images, favicon, index.html)
+app.mount("/", StaticFiles(directory="frontend/build", html=True), name="static")
 
 # define React frontend URL
 origins = [ 
