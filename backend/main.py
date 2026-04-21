@@ -39,4 +39,5 @@ def add_word(word: Word):
 
 # testing API with uvicorn (ASGI server for Python)
 if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    thePort = int(os.environ.get("PORT", 8000)) # defaults to 8000 if it does not find Herokus dynamic port 
+    uvicorn.run(app, host="0.0.0.0", port=thePort)
