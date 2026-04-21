@@ -3,11 +3,6 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from typing import List
-import os
-
-@app.get("/favicon.ico") # favicon.ico not found at heroku
-async def favicon():
-    return FileResponse(os.path.join("frontend", "build", "favicon.ico"))
 
 class Word(BaseModel):
     name: str
